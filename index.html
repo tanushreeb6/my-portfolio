@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanushree Bhandekar · IoT portfolio</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Inter + Space Grotesk for dynamic feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f6f9fc;
+            font-family: "Inter", sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* dynamic gradient animation */
+        @keyframes softFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* header & footer consistent glassmorphism */
+        .header, .footer {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0,20,50,0.05);
+            border-bottom: 1px solid rgba(164, 188, 214, 0.2);
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-weight: 600;
+            font-size: 1.8rem;
+            background: linear-gradient(130deg, #1e2b4f, #3b5c9e, #2563eb);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: softFlow 8s ease infinite;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #1e293b;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #2563eb;
+            color: #0f2b5e;
+        }
+
+        .main {
+            flex: 1;
+            max-width: 1300px;
+            width: 90%;
+            margin: 2rem auto;
+        }
+
+        /* HERO SECTION — dynamic & clean */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 1.5rem 0 3rem 0;
+            background: linear-gradient(145deg, #ffffff 10%, #f0f7ff 90%);
+            border-radius: 3rem;
+            padding: 2.5rem 3rem;
+            box-shadow: 0 20px 30px -10px rgba(30, 60, 130, 0.15);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .hero-left h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            background: linear-gradient(to right, #0c1e3c, #1d4ed8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+        .hero-left .tagline {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #2c3e5c;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+        .contact-badge {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .contact-badge a {
+            background: white;
+            padding: 0.6rem 1.3rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #1e293b;
+            font-weight: 500;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+            transition: 0.2s;
+            border: 1px solid #dbe7f5;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-badge a i {
+            color: #2563eb;
+            font-size: 1.2rem;
+        }
+        .contact-badge a:hover {
+            background: #eef4ff;
+            border-color: #2563eb;
+            transform: translateY(-3px);
+        }
+
+        .hero-right {
+            background: radial-gradient(circle at 30% 30%, #d9e9ff, #ffffff);
+            padding: 1rem 1.8rem;
+            border-radius: 2rem;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #0c2993;
+            border: 2px dashed #a0c4ff;
+        }
+        .hero-right span {
+            font-weight: 700;
+            background: #0a1e4a;
+            color: white;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        /* section styling */
+        .section-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 2.2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 12px 35px -8px rgba(25, 50, 80, 0.12);
+            border: 1px solid rgba(255,255,255,0.7);
+            transition: transform 0.15s ease;
+        }
+        .section-card:hover {
+            box-shadow: 0 25px 35px -14px rgba(25, 90, 160, 0.15);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+        .section-title i {
+            background: #1e40af;
+            color: white;
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 14px #1e40af55;
+        }
+
+        /* education & languages grid */
+        .edu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        .edu-item {
+            background: #ffffffd6;
+            padding: 1.3rem 2rem;
+            border-radius: 2rem;
+            border: 1px solid #cfdff5;
+            flex: 1 1 200px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 10px rgba(0,20,50,0.05);
+        }
+        .edu-item i {
+            font-size: 2rem;
+            color: #2563eb;
+        }
+
+        .lang-pills {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .lang-pill {
+            background: linear-gradient(125deg, #e6f0ff, #ffffff);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: 1px solid #bdd3f0;
+            box-shadow: 0 6px 0 #c1d6f5;
+            transition: 0.15s;
+        }
+        .lang-pill i {
+            margin-right: 10px;
+            color: #1e4fd0;
+        }
+
+        /* project highlight */
+        .project-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: #eaf3ff;
+            border-radius: 2.2rem;
+            padding: 2rem;
+            border: 1px solid white;
+        }
+        .project-info {
+            flex: 2 1 300px;
+        }
+        .project-badge {
+            display: inline-block;
+            background: #0b2d6e;
+            color: white;
+            padding: 0.4rem 1.5rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        .project-info h3 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin: 0.5rem 0 0.8rem;
+        }
+        .project-desc {
+            font-size: 1.15rem;
+            color: #1e3755;
+            max-width: 550px;
+            margin-bottom: 1.5rem;
+        }
+        .iot-tag {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .iot-tag span {
+            background: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 500;
+            border: 1px solid #9eb9e3;
+        }
+        .project-emoji {
+            flex: 1 1 150px;
+            background: #ffffffb3;
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            flex-direction: column;
+            padding: 1rem;
+            box-shadow: inset 0 0 0 2px white;
+        }
+        .project-emoji small {
+            font-size: 1rem;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        /* social/prof links */
+        .link-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .social-card {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px #cbd5e1;
+            transition: 0.2s;
+            text-decoration: none;
+            color: #0c1b3b;
+            font-weight: 500;
+            border: 1px solid #dce9ff;
+        }
+        .social-card i {
+            font-size: 1.8rem;
+        }
+        .social-card:hover {
+            background: #1e3a8a;
+            color: white;
+            transform: scale(1.02);
+        }
+        .social-card:hover i {
+            color: white;
+        }
+
+        /* footer */
+        .footer {
+            margin-top: 2rem;
+            padding: 1.8rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e2edff;
+            border-bottom: none;
+            color: #23355b;
+        }
+        .footer .ft-links a {
+            color: #1f3a78;
+            text-decoration: none;
+            margin: 0 0.8rem;
+            font-weight: 500;
+        }
+        .footer .ft-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* responsiveness */
+        @media (max-width: 700px) {
+            .header {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- DYNAMIC HEADER -->
+    <header class="header">
+        <div class="logo">✧ TANUSHREE BHANDEKAR ✧</div>
+        <div class="nav-links">
+            <a href="#education">Ed</a>
+            <a href="#skills">Skills</a>
+            <a href="#project">Project</a>
+            <a href="#connect">Connect</a>
+        </div>
+    </header>
+
+    <main class="main">
+        <!-- HERO section (personal) -->
+        <section class="hero">
+            <div class="hero-left">
+                <h1>Tanushree Bhandekar</h1>
+                <div class="tagline">Electrical engineering · IoT creator · C / Python</div>
+                <div class="contact-badge">
+                    <a href="mailto:tanushreeab18@gmail.com"><i class="fas fa-envelope"></i> tanushreeab18</a>
+                    <a href="https://github.com/tanushreeb6" target="_blank"><i class="fab fa-github"></i> tanushreeb6</a>
+                    <a href="https://www.linkedin.com/in/tanushree-bhandekar-2412343aa" target="_blank"><i class="fab fa-linkedin"></i> Tanushree B</a>
+                </div>
+            </div>
+            <div class="hero-right">
+                <i class="fas fa-bolt" style="color:#2563eb;"></i> B.Tech EE <span>'26</span>
+            </div>
+        </section>
+
+        <!-- EDUCATION + mini C/Python section (dynamic) -->
+        <section id="education" class="section-card">
+            <div class="section-title">
+                <i class="fas fa-graduation-cap"></i> 
+                <span>education & core</span>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-item"><i class="fas fa-university"></i> B.Tech, Electrical Engineering</div>
+                <div class="edu-item"><i class="fas fa-microchip"></i> IoT & embedded systems</div>
+                <div class="edu-item"><i class="fas fa-code"></i> programming · C & Python</div>
+            </div>
+            <!-- languages highlighted -->
+            <div style="margin-top: 1.8rem;">
+                <div style="font-weight: 600; margin-bottom: 1rem; color:#1e3e6e;"><i class="fas fa-laptop-code"></i> computing languages</div>
+                <div class="lang-pills">
+                    <div class="lang-pill"><i class="fas fa-copyright"></i> C (advanced)</div>
+                    <div class="lang-pill"><i class="fab fa-python"></i> Python (core + IoT)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT : smart safe bag charm (major highlight) -->
+        <section id="project" class="section-card" style="background: linear-gradient(115deg, #f3f9ff, #eef5fe);">
+            <div class="section-title">
+                <i class="fas fa-shield-halved" style="background: #9f3fff;"></i> 
+                <span>minor project · smart safe bag charm</span>
+            </div>
+            <div class="project-showcase">
+                <div class="project-info">
+                    <span class="project-badge"><i class="fas fa-star"></i> IOT · WOMEN SAFETY</span>
+                    <h3>✨ smart, safe bag charm</h3>
+                    <div class="project-desc">
+                        A wearable IoT device disguised as a bag charm. Triggered by gesture, it sends real-time location alert to emergency contacts. Built with my group using C, Python, and cloud integration.
+                    </div>
+                    <div class="iot-tag">
+                        <span><i class="fas fa-wifi"></i> ESP8266</span>
+                        <span><i class="fas fa-map-pin"></i> GPS</span>
+                        <span><i class="fas fa-bell"></i> Blynk / IFTTT</span>
+                        <span><i class="fas fa-users"></i> group project</span>
+                    </div>
+                </div>
+                <div class="project-emoji">
+                    <i class="fas fa-bag-shopping" style="font-size:4rem; color:#1e4fd0;"></i>
+                    <span>🛡️ charm</span>
+                    <small>women safety · IoT</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS & EXTRA (blend) + group acknowledgment -->
+        <section id="skills" class="section-card">
+            <div class="section-title">
+                <i class="fas fa-cogs"></i>
+                <span>technical toolkit</span>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
+                <div style="min-width: 200px;">
+                    <h4 style="margin-bottom: 1rem;"><i class="fas fa-terminal" style="margin-right: 8px;"></i> languages</h4>
+                    <ul style="list-style-type: none; font-weight: 400;">
+                        <li><i class="fas fa-check-circle" style="color:#2563eb;"></i> C (data structures, embedded)</li>
+                        <li><i class="fas fa-check-circle" style="color:#2563eb;"></i> Python (flask, IoT scripts)</li>
+                        <li><i class="fas fa-check-circle" style="color:#2563eb;"></i> SQL / basics of JS</li>
+                    </ul>
+                </div>
+                <div style="min-width: 200px;">
+                    <h4 style="margin-bottom: 1rem;"><i class="fas fa-cloud"></i> IoT & tools</h4>
+                    <ul style="list-style-type: none;">
+                        <li><i class="fas fa-microchip"></i> Arduino, Raspberry Pi</li>
+                        <li><i class="fas fa-chart-line"></i> ThingSpeak / MQTT</li>
+                        <li><i class="fas fa-code-branch"></i> Git, group collaboration</li>
+                    </ul>
+                </div>
+                <div style="background: #e2ecfe; padding: 1rem 2rem; border-radius: 2rem;">
+                    <i class="fas fa-people-group"></i> <strong>group project</strong> — collaborated with 3 peers on hardware & firmware.
+                </div>
+            </div>
+        </section>
+
+        <!-- CONNECT / social links (github + linkedin + mail) -->
+        <section id="connect" class="section-card" style="text-align: center;">
+            <div class="section-title" style="justify-content: center;">
+                <i class="fas fa-link" style="background: #0b385b;"></i> 
+                <span>let's connect</span>
+            </div>
+            <div class="link-grid">
+                <a href="https://github.com/tanushreeb6" target="_blank" class="social-card"><i class="fab fa-github"></i> tanushreeb6</a>
+                <a href="https://www.linkedin.com/in/tanushree-bhandekar-2412343aa" target="_blank" class="social-card"><i class="fab fa-linkedin"></i> Tanushree Bhandekar</a>
+                <a href="mailto:tanushreeab18@gmail.com" class="social-card"><i class="fas fa-envelope"></i> tanushreeab18</a>
+            </div>
+            <p style="margin-top: 2rem; font-style: italic; opacity: 0.7;">
+                <i class="fas fa-location-dot"></i> always building · open to tech conversations
+            </p>
+        </section>
+    </main>
+
+    <!-- FOOTER (professional) -->
+    <footer class="footer">
+        <div>© 2025 Tanushree Bhandekar · B.Tech EE</div>
+        <div class="ft-links">
+            <a href="#education">Education</a> · 
+            <a href="#project">Project</a> · 
+            <a href="#connect">Contact</a>
+            <a href="https://github.com/tanushreeb6" target="_blank" style="margin-left: 1rem;"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/tanushree-bhandekar-2412343aa" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <!-- tiny interactive (dynamic feel: console greet) -->
+    <script>
+        (function() {
+            console.log("✨ Tanushree's portfolio — smart bag charm · IoT · C / Python");
+            // optional: add year dynamically in footer
+            document.querySelector('.footer div:first-child').innerHTML = `© ${new Date().getFullYear()} Tanushree Bhandekar · B.Tech EE`;
+        })();
+    </script>
+</body>
+</html>
